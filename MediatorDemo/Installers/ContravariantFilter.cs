@@ -10,13 +10,13 @@
     {
         public bool HasOpinionAbout(Type service)
         {
-            if (!service.IsGenericType)
-                return false;
+            if (!service.IsGenericType) return false;
 
-            var genericType = service.GetGenericTypeDefinition();
-            var genericArguments = genericType.GetGenericArguments();
+            Type genericType = service.GetGenericTypeDefinition();
+            Type[] genericArguments = genericType.GetGenericArguments();
             return genericArguments.Count() == 1
-                   && genericArguments.Single().GenericParameterAttributes.HasFlag(GenericParameterAttributes.Contravariant);
+                   && genericArguments.Single()
+                          .GenericParameterAttributes.HasFlag(GenericParameterAttributes.Contravariant);
         }
 
         public IHandler[] SelectHandlers(Type service, IHandler[] handlers)

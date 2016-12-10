@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
 
-    using MediatorDemo.BusinessLogic.Requests;
-    using MediatorDemo.BusinessLogic.Responses;
+    using BusinessLogic.Requests;
+    using BusinessLogic.Responses;
 
     using MediatR;
 
@@ -22,7 +22,7 @@
             var request = new PizzaOrderRequest
                 {
                     Address = "Via di prova 2, Crespellano",
-                    Order = new Dictionary<PizzaType, int> { { PizzaType.Margherita, 2 }, { PizzaType.Diavola, 3 } }
+                    Order = new Dictionary<PizzaType, int> { { PizzaType.Patatine, 15 }, { PizzaType.Margherita, 1 } }
                 };
 
             Console.Out.Write("Processing Your Order....\n");
@@ -32,7 +32,8 @@
                 PizzaOrderResponse response = await mediator.SendAsync(request);
 
                 Console.Out.Write(
-                    "The bill is " + response.Bill + " EUR, and it will be delivered to " + request.Address + " at " + response.DeliveryTime);
+                    "The bill is " + response.Bill + " EUR, and it will be delivered to " + request.Address + " at "
+                    + response.DeliveryTime);
             }
             catch (ArgumentNullException)
             {
