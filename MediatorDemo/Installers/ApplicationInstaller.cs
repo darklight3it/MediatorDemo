@@ -21,6 +21,8 @@
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
+            #region Mediator Installer
+
             container.Register(Component.For<IMediator>().ImplementedBy<Mediator>());
             container.Register(Classes.FromAssemblyContaining<Ping>().Pick().WithServiceAllInterfaces());
             container.Register(Component.For<TextWriter>().Instance(Console.Out));
@@ -33,6 +35,9 @@
                 Component.For<MultiInstanceFactory>()
                     .UsingFactoryMethod<MultiInstanceFactory>(k => t => (IEnumerable<object>)k.ResolveAll(t)));
 
+            #endregion
+
+
             container.Register(Component.For<DemoController>());
 
 
@@ -40,10 +45,16 @@
                 Component.For<IAsyncRequestHandler<PizzaOrderRequest, PizzaOrderResponse>>()
                     .ImplementedBy<PizzaOrderHandler>());
 
-
             container.Register(
                 Component.For<IRequestHandler<PizzaOrderCancellationRequest, Unit>>()
                     .ImplementedBy<PizzaOrderCancellationHandler>());
+
+            /*container.Register(
+                Component.For<IAsyncRequestHandler<PizzaOrderRequest, PizzaOrderResponse>>()
+                    .ImplementedBy<BuggyDuplicatedHandler>());*/
+
+            container.Register(Component.For<PizzaOrderNotificationEmailHandler>());
+            container.Register(Component.For<PizzaOrderNotificationSMSHandler>());
         }
     }
 }

@@ -4,6 +4,8 @@ namespace MediatorDemo.BusinessLogic.Responses
 
     public class PizzaOrderResponse
     {
+        public Guid OrderId { get; set; }
+
         public DateTime DeliveryTime { get; set; }
 
         public double Bill { get; set; }

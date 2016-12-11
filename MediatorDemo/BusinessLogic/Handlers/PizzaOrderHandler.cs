@@ -36,7 +36,8 @@
             var pizzaOrderResponse = new PizzaOrderResponse
                 {
                     Bill = CalculatePrice(message.Order),
-                    DeliveryTime = DateTime.Now + TimeSpan.FromMinutes(random.NextDouble() * 30)
+                    DeliveryTime = DateTime.Now + TimeSpan.FromMinutes(random.NextDouble() * 30),
+                    OrderId = Guid.NewGuid()
                 };
 
             return Task.FromResult(pizzaOrderResponse);

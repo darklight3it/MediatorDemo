@@ -70,11 +70,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\Handlers\PizzaOrderNotificationSMSHandler.cs" />
+    <Compile Include="BusinessLogic\Handlers\PizzaOrderNotificationEmailHandler.cs" />
     <Compile Include="BusinessLogic\Handlers\PizzaOrderHandler.cs" />
     <Compile Include="BusinessLogic\Requests\PizzaOrderRequest.cs" />
     <Compile Include="BusinessLogic\Responses\PizzaOrderResponse.cs" />
     <Compile Include="BusinessLogic\Requests\PizzaOrderCancellationRequest.cs" />
-    <Compile Include="BusinessLogic\Requests\NotifyPizzaOrderRequest.cs" />
+    <Compile Include="BusinessLogic\Requests\PizzaOrderNotification.cs" />
     <Compile Include="Installers\ApplicationInstaller.cs" />
     <Compile Include="BusinessLogic\Handlers\BuggyDuplicatedHandler.cs" />
     <Compile Include="Installers\ContravariantFilter.cs" />

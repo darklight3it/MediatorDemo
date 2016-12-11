@@ -1,13 +1,10 @@
 ﻿namespace MediatorDemo.BusinessLogic.Handlers
 {
     using System;
-    using System.Threading.Tasks;
 
     using MediatR;
 
     using Requests;
-
-    using Responses;
 
     public class PizzaOrderCancellationHandler : IRequestHandler<PizzaOrderCancellationRequest, Unit>
     {
