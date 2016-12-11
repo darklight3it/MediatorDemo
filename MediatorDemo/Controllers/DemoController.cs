@@ -17,7 +17,7 @@
             this.mediator = mediator;
         }
 
-        public async void Run()
+        public async void RequestPizza()
         {
             var request = new PizzaOrderRequest
                 {
@@ -33,11 +33,29 @@
 
                 Console.Out.Write(
                     "The bill is " + response.Bill + " EUR, and it will be delivered to " + request.Address + " at "
-                    + response.DeliveryTime);
+                    + response.DeliveryTime + "\n");
             }
             catch (ArgumentNullException)
             {
-                Console.Out.Write("The order cannot be processed");
+                Console.Out.Write("The order cannot be processed\n");
+            }
+
+            Console.ReadKey();
+        }
+
+        public void CancelPizzaOrder()
+        {
+            var request = new PizzaOrderCancellationRequest { OrderId = Guid.NewGuid() };
+
+            try
+            {
+                mediator.Send(request);
+
+                Console.Out.Write("The order " + request.OrderId + " is cancelled\n");
+            }
+            catch (ArgumentNullException)
+            {
+                Console.Out.Write("The order cannot be cancelled\n");
             }
 
             Console.ReadKey();

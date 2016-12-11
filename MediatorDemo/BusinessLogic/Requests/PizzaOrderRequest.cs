@@ -6,7 +6,7 @@ namespace MediatorDemo.BusinessLogic.Requests
 
     using Responses;
 
-    public class PizzaOrderRequest: IAsyncRequest<PizzaOrderResponse>
+    public class PizzaOrderRequest : IAsyncRequest<PizzaOrderResponse>
     {
         public Dictionary<PizzaType, int> Order { get; set; }
 
@@ -16,10 +16,15 @@ namespace MediatorDemo.BusinessLogic.Requests
     public enum PizzaType
     {
         Margherita,
+
         Diavola,
+
         Patatine,
+
         Capricciosa,
+
         Cotto,
+
         Crudo
     }
 }

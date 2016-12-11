@@ -33,15 +33,17 @@
                 Component.For<MultiInstanceFactory>()
                     .UsingFactoryMethod<MultiInstanceFactory>(k => t => (IEnumerable<object>)k.ResolveAll(t)));
 
-
             container.Register(Component.For<DemoController>());
+
 
             container.Register(
                 Component.For<IAsyncRequestHandler<PizzaOrderRequest, PizzaOrderResponse>>()
                     .ImplementedBy<PizzaRequestHandler>());
 
 
-
+            container.Register(
+                Component.For<IRequestHandler<PizzaOrderCancellationRequest, Unit>>()
+                    .ImplementedBy<PizzaOrderCancellationHandler>());
         }
     }
 }

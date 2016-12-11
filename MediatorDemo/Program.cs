@@ -14,7 +14,9 @@
 
             var controller = container.Resolve<DemoController>();
 
-            controller.Run();
+            controller.RequestPizza();
+
+            controller.CancelPizzaOrder();
         }
     }
 }
