@@ -54,7 +54,7 @@
                     .ImplementedBy<BuggyDuplicatedHandler>());*/
 
             container.Register(Component.For<PizzaOrderNotificationEmailHandler>());
-            container.Register(Component.For<PizzaOrderNotificationSMSHandler>());
+            container.Register(Component.For<PizzaOrderNotificationSmsHandler>());
         }
     }
 }

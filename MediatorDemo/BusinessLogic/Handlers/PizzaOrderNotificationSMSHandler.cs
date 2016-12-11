@@ -8,7 +8,7 @@ namespace MediatorDemo.BusinessLogic.Handlers
 
     using Requests;
 
-    public class PizzaOrderNotificationSMSHandler : IAsyncNotificationHandler<PizzaOrderNotification>
+    public class PizzaOrderNotificationSmsHandler : IAsyncNotificationHandler<PizzaOrderNotification>
     {
         public Task Handle(PizzaOrderNotification notification)
         {
