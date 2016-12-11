@@ -17,18 +17,18 @@
     using Rhino.Mocks;
 
     [TestFixture]
-    public class PizzaRequestHandlerTest
+    public class PizzaOrderHandlerTest
     {
         private IMediator mediator { get; set; }
 
-        private PizzaRequestHandler sut { get; set; }
+        private PizzaOrderHandler sut { get; set; }
 
         [SetUp]
         public void SetUp()
         {
             StubDependencies();
 
-            sut = new PizzaRequestHandler();
+            sut = new PizzaOrderHandler();
         }
 
         [Test]

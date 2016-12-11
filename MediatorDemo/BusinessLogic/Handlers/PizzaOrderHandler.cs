@@ -12,7 +12,7 @@
 
     using Responses;
 
-    public class PizzaRequestHandler : IAsyncRequestHandler<PizzaOrderRequest, PizzaOrderResponse>
+    public class PizzaOrderHandler : IAsyncRequestHandler<PizzaOrderRequest, PizzaOrderResponse>
     {
         private static Dictionary<PizzaType, double> PriceList
             =>

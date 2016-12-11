@@ -38,7 +38,7 @@
 
             container.Register(
                 Component.For<IAsyncRequestHandler<PizzaOrderRequest, PizzaOrderResponse>>()
-                    .ImplementedBy<PizzaRequestHandler>());
+                    .ImplementedBy<PizzaOrderHandler>());
 
 
             container.Register(
